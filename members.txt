@@ -1,0 +1,9 @@
+Alex - Worked on improving the webscraping from seamless to acquire the additional data needed to populate the database. Helped David set up the initial Flask environment.
+
+David - Worked on setting up the Flask environment and the html pages. Integrated the pages to properly link to each other and pass data properly.
+
+William - Since the second milestone, I worked on finalizing the SQL tables and insert statements to match the actual data we collected. I also worked with David on the edit profile page, the page that lets you run the first query, and the page that displays restaurants and their safety scores.
+
+Ram- Since the second milestone, I worked on cleaning some of the data we scraped manually. I also worked with Rick on making the page that displays for each restaurant the menu items the given user can and cannot eat and integrating that into the rest of the website framework.
+
+Rick- Since the second milestone I worked on displaying the menu items of a given restaurant cleanly on the seamless page.  Created login and signup pages for the website.  Added stylistic features to the website.  

@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h2 class="title" style="color:black">SafeEats</h2>
+    <h4 class="subtitle" style="color:black">Sign Up</h4>    
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}. <a href="{{ url_for('login') }}">Login Here</a>.
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/signup">
+
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" name="name" placeholder="Name" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="email" name="email" placeholder="Email" >
+                </div>
+            </div>
+
+    
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label for="city">City</label><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="city" name="city" value="Durham">&nbsp; Durham &nbsp;
+                <input type="radio" id="city" name="city" value="New York">&nbsp; New York &nbsp;
+                <input type="radio"  id="city" name="city" value="Austin">&nbsp; Austin &nbsp;
+                       
+            </div>
+
+            <div>
+                <button class="button is-block is-info is-large is-fullwidth">Sign Up
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SafeEats</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="container">
+            <br>
+            <br>
+
+            <div class="row align-items-center justify-content-center">
+                <h1 style="color: black; font-size:36px">SafeEats</h1>
+            </div>
+            <br>
+            <div class="row align-items-center justify-content-center">
+                <h2 style="color: black; font-size:24px"><b>Query Results</b></h2>
+            </div>
+            <br> 
+
+            <table>
+                <tr>
+                    <th style="color: black; font-size:16px">Restaurant</th> 
+                    {% if ( restaurants[0] | length ) == 3 %}
+                    <th style="color: black; font-size:16px; padding-right: 20px">Allergy</th>
+                    <th style="color: black; font-size:16px; padding-right: 20px">Risk Score</th>
+                    {% endif %}
+                    <th style="color: black; font-size:16px; padding-right: 20px">Address</th>
+                    <th style="color: black; font-size:16px; padding-right: 40px">Phone Number</th>
+                    <th style="color: black; font-size:16px; padding-right: 20px">Seamless URL</th>
+                </tr>
+                {% for r in restaurants %}
+
+                {% set info = r[0] %}
+
+                <tr>
+                    <td>
+                        {% set rid_int = info.id | int %}
+                        {% set uid_int = uid  | int %}
+                        
+                        <a style="color: black; font-size:16px", href="{{  url_for('restaurant_page', rid=rid_int, uid=uid_int) }} ">    
+                            <img src="{{ info.image | string }}" /> 
+                            <br style="color: black; font-size:16px">
+                            {{r[0].name}}                
+                        </a>   
+                    </td>
+
+                    {% if (r | length ) == 3 %}
+                    <td style="color: black; font-size:16px">{{r[1]}}</td>
+                    <td style="color: black; font-size:16px">{{r[2]}}</td>
+                    {% endif %}
+
+                    <td style="color: black; font-size:16px">
+                        {{info.street_address}}
+                    </td>
+                    <td style="color: black; font-size:16px">
+                        {% if info.phone_number is not none %}
+                            {{info.phone_number }}
+                        {% endif %}
+                    </td>
+                    <td style="color: black; font-size:16px;">
+                        <a href="{{info.url}}">=></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <br>
+            <br>
+        </div>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}
